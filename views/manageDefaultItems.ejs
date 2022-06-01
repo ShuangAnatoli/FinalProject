@@ -1,0 +1,91 @@
+<%- include('partials/header') %>
+<%- include('partials/adminSide') %>
+
+<main class="mt-5 pt-3">
+    <div class="ms-3">
+        <h4>Manage default items</h4>
+    </div>
+    <div class="ms-3">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add new item</button>
+          </div>
+    </div>
+    <div class="ms-3 me-3">
+        <table class="table" id="dt-table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              <% items.forEach(function(item){ %>
+                <tr>
+                  
+                  <td><%= item.name%></td>
+                  <td><%= item.type%></td>
+                  <td><a href="/deleteDefaultItem/<%=item._id%>" class="text-decoration-none" onclick="ConfirmDelete()">Delete</a></td>
+                </tr>
+            <% }); %>
+            </tbody>
+          </table>
+    </div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="/addDefaultItem" method="post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Item Name</label>
+                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Enter item name" autocomplete="off" required>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="type" value="habit" id="flexRadioDefault1">
+                    <label class="form-check-label" for="habit">
+                      Habit
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="type" id="flexRadioDefault2" value="sobriety" checked>
+                    <label class="form-check-label" for="sobriety">
+                      Sobriety
+                    </label>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+              </div>
+            </div>
+          </div>
+    </form>
+  </div>
+<script>
+    $(document).ready(function() {
+      $('#dt-table').DataTable({
+      pageLength: 5,
+      paging: true,
+      filter: true,
+      deferRender: true,
+      scrollY: 200,
+      scrollCollapse: true,
+      scroller: true,
+      "searching": true,
+      });
+    } );
+    function ConfirmDelete()
+{
+  return confirm("Are you sure you want to delete?");
+}
+  
+
+  </script>
+<%- include('partials/footer') %>

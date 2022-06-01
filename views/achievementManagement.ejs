@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+<%- include('partials/adminSide') %>
+
+<main class="mt-5 pt-3">
+    <form action="addAchievements" method="post" class="ms-5 me-5 mt-3">
+        <div class="row mb-3">
+          <label for="name" class="col-sm-2 col-form-label">Achievement Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+          </div>
+        </div>
+        <div class="row mb-3">
+            <label for="conditions" class="col-sm-2 col-form-label">Conditions</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="conditions" name="conditions" autocomplete="off">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="points" class="col-sm-2 col-form-label">Points</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="points" name="points">
+            </div>
+        </div>
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-2 pt-0">Category</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category" id="gridRadios1" value="habit" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Habit
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category" id="gridRadios2" value="sobriety">
+              <label class="form-check-label" for="gridRadios2">
+                Sobriety
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="journal">
+              <label class="form-check-label" for="gridRadios3">
+                Journal
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+</main>
+
+<%- include('partials/footer') %>

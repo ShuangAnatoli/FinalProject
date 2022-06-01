@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+<main class="mt-5 pt-3">
+  <h2 class="ms-2">Achievements - Habits</h2>
+  <div class="media">
+    <div class="media-body">
+  
+     <% achievements.forEach(function(achievement){ %>
+        
+
+       <% if(user.habitItem>=achievement.points){ %> 
+        
+          <p class="mt-0 ms-3"><strong> <i class="bi bi-trophy me-2"></i><%= achievement.name %></strong></p>
+          <p class="mt-0 ms-3">Clear conditions:<%= achievement.conditions %></p>
+          <p class="ms-3">Points: <%=user.habitItem%>/<%=achievement.points%></p>
+          <a href="/update-userhAchievement/?id=<%=achievement.id%>"><button id="claimbtn" type="button" class="btn btn-outline-success mt-0 ms-3" onclick="change()">Claim</button></a>
+          <hr>
+       <% }else{ %>
+          <p class="mt-0 ms-3"><strong> <i class="bi bi-trophy me-2"></i><%= achievement.name %></strong></p>
+          <p class="mt-0 ms-3">Clear conditions:<%= achievement.conditions %></p>
+          <p class="ms-3"><%=user.habitItem%>/<%=achievement.points%></p>
+          <button id="claimbtn" type="button" class="btn btn-outline-secondary mt-0 ms-3" disabled>Lacking Points</button>
+          <hr>
+      <%  } %>
+      <%  }); %>
+ 
+    </div>
+  </div>
+ 
+</main>
+<script>
+ 
+function change()
+{
+var design=document.getElementById("claimbtn");
+design.innerText="Claimed";
+design.style.color="red";
+}
+</script>
+<%- include('partials/footer') %>

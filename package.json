@@ -1,0 +1,39 @@
+{
+  "name": "projectfinal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShuangAnatoli/FinalProject.git"
+  },
+  "author": "Swann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShuangAnatoli/FinalProject/issues"
+  },
+  "homepage": "https://github.com/ShuangAnatoli/FinalProject#readme",
+  "dependencies": {
+    "alert": "^5.0.10",
+    "body-parser": "^1.19.1",
+    "chart.js": "^3.7.1",
+    "connect-flash": "^0.1.1",
+    "datatables.net": "^1.11.5",
+    "datatables.net-dt": "^1.11.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.2.3",
+    "mongoose-encryption": "^2.1.2",
+    "node-fetch": "^3.2.3",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "popups": "^1.1.3",
+    "underscore": "^1.13.2"
+  }
+}

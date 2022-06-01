@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+<main class="mt-5 pt-3">
+  <h2 class="ms-2">All Entries</h2>
+  <div class="media">
+    <div class="media-body">
+        <%  entries.forEach(function(entry){ %>
+         <% if(entry.mood==3){ %>
+            <i class="bi bi-emoji-smile ms-3"></i>
+         <% }else if(entry.mood==2){ %>
+            <i class="bi bi-emoji-neutral ms-3"></i>
+         <% }else{ %>
+            <i class="bi bi-emoji-frown ms-3"></i>
+         <% } %>
+      <h5 class="mt-0 ms-3"><%= entry.entryDate %></h5>
+      <p class="ms-3"><%=entry.content.substring(0, 100) + " ..."%>
+        <a href="/singleJournal/<%=entry._id%>">Read More</a>
+        </p>
+      <hr>
+      <% }) %>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+

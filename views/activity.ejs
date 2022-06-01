@@ -1,0 +1,84 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+<main class="mt-5 pt-3">
+  <div class="ms-3 mb-3">
+    <div class="d-grid gap-2 d-md-flex">
+        <button class="btn btn-outline-secondary me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add new habit</button>
+      </div>
+    </div>
+    <div class="ms-3 me-3">
+      <h4>Existing Habits</h4>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Action</th>  
+            </tr>
+          </thead>
+          <tbody>
+            <% items.forEach(function(item){ %>
+              <% item.forEach(function(existingHabit){ %>
+                <%if(existingHabit.user){%>
+                  <tr>
+                    <td><p><%= existingHabit.habitName %></p></td>
+                    <td><a href="/deletehabit/?id=<%=existingHabit._id%>" onclick="ConfirmDelete()"><i class="bi bi-trash ms-3"></i></a></td>
+                  </tr>
+             
+                <% } %>
+              <% }); %>
+            <% }); %>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form action="/activity" method="post">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add New Item</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+              <div class="mb-3">
+              <label for="habitName" class="form-label">Habit Name</label>
+              <input list="habitname" type="text" name="newHabit" id="habitName" class="form-control" required autocomplete="off">
+                <datalist id="habitname">
+                <% items.forEach(function(item){ %>
+                  <% item.forEach(function(habit){ %>
+                    <%if(habit.type){%>
+                  <option value="<%=habit.name%>"><%=habit.name%></option>
+                    <% } %>
+                  <% }); %>
+                <% }); %>
+                </datalist>
+                <div id="inputHelp" class="form-text">If there is nothing that matches your habit. Please type in.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Reason for cultivating this habit</label>
+                <input type="text" name="reason" class="form-control" id="formGroupExampleInput" autocomplete="off">
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </div>
+        </div>
+  </form>
+</div>
+<script>
+  function ConfirmDelete()
+{
+  return confirm("Are you sure you want to delete?");
+}
+
+</script>
+<%- include('partials/footer') %>
+ 

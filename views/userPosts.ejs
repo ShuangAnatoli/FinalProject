@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+<%if(role=="user"){%>
+  <%- include('partials/sidenav') %>
+<%}%>
+<%if(role=="admin"){%>
+  <%- include('partials/adminSide') %>
+<%}%>
+
+<main class="mt-5 pt-3">
+    <h4 class="ms-3">Your posts</h4>
+    <% posts.forEach(function(post){ %>
+    <div class="d-flex mt-3 ms-3">
+        <div class="flex-shrink-0">
+            <img src="https://i.pinimg.com/564x/20/0d/72/200d72a18492cf3d7adac8a914ef3520.jpg" alt="" width="70px" height="70px">
+        </div>
+        <div class="flex-grow-1 ms-3">
+                <p><%= post.userDisplay %> <a href="/deletePost/<%= post._id %>" onclick="ConfirmDelete()"><i class="bi bi-trash3"></i></a></p> 
+                <p><strong><%= post.title %></strong></p>
+                <p> <%= post.content %></p>
+        </div>
+      </div>
+      <hr>
+      <% }); %>
+</main>
+<script>
+    function ConfirmDelete()
+  {
+    return confirm("Are you sure you want to delete?");
+  }
+  
+  </script>
+
+<%- include('partials/footer') %>

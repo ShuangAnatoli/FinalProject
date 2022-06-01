@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+<main class="mt-5 pt-3">
+
+      <div>
+        <p class="ms-2">Today: <%= Date %></p>
+        <h4 class="ms-3">Manage your habits today.</h4>
+      </div>
+      <div>
+          <div class="media">
+            <div class="media-body">
+              <%newHabits.forEach(function(habit){%>
+                
+              <p class="mt-0 ms-3 fs-5">Habit: <%= habit.habitName %></p>
+              <p class="text-muted fs-6 mt-0 ms-3">Start date: <%= habit.start %></p>
+              <a href="/habitSingle/<%=habit._id%>" class="text-decoration-none">
+                <button class="btn btn-outline-secondary mt-0 ms-3">Manage</button>
+              </a>
+              <hr>
+              <% }); %>
+            </div>
+          </div>
+        
+      </div>
+  
+</main>
+<script>
+//  var btn = document.getElementById('checkBtn'+i);
+//  function changeDesign(text){
+//   btn.innerText = text;
+//  }x
+
+//  changeDesign('Checked');
+</script>
+
+<%- include('partials/footer') %>

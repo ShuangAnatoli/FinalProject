@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+  <main role="main" class="mt-5 pt-3">
+    
+        <h5 class="ms-2"><%= date %></h5>
+        <form action="/journal" method="post">
+          <div class="form-group ms-3 me-3">
+            <label for="exampleFormControlTextarea1" class="mb-2">How are you feeling today?</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="entry"></textarea>
+          </div>
+          <small id="emailHelp" class="form-text text-muted ms-3">Talk about your worries or share anything you like.</small>
+
+          <div class="form-group ms-3 me-3">
+            <label for="exampleFormControlTextarea1">Reflect your day.</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="reflection"></textarea>
+          </div>
+          <small id="emailHelp" class="form-text text-muted ms-3 me-3">Tell me about your reflections for your actions.</small>
+
+          <!-- radio button mood icons-->
+
+          <div class="form-group ms-3 me-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="mood" id="inlineRadio1" value=1>
+              <label class="form-check-label" for="inlineRadio1"><i class="bi bi-emoji-frown"></i></label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="mood" id="inlineRadio2" value=2>
+              <label class="form-check-label" for="inlineRadio2"><i class="bi bi-emoji-neutral"></i></label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="mood" id="inlineRadio3" value=3>
+              <label class="form-check-label" for="inlineRadio3"><i class="bi bi-emoji-smile"></i></label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary md-left ms-3 me-3">Submit</button>
+        </form>
+    
+
+  </main>>
+
+
+
+   
+
+<%- include('partials/footer') %>

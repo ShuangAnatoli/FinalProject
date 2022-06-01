@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+<%if(role=="user"){%>
+  <%- include('partials/sidenav') %>
+<%}%>
+<%if(role=="admin"){%>
+  <%- include('partials/adminSide') %>
+<%}%>
+
+<main class="mt-5 pt-3">
+    <div class="card ms-3 me-3 pt-2">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="https://i.pinimg.com/564x/67/33/40/673340b2196b91f159e06556b4db196e.jpg" alt="user-img" class="img-thumbnail">
+                </div>
+                <div class="col-lg-9">
+                   
+                    <p class="text-start text-muted">Email: <%=entry.username%></p>
+                    
+                    <p class="text-start text-muted">Age: <%=message.age%></p>
+                    <p class="text-start text-muted">Gender: <%=message.gender%></p>
+                   <a href="/details/?id=<%=entry._id%>">
+                    <button type="button" class="btn btn-outline-primary text-decoration-none">
+                    Update</button>
+                </a>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- To all posts -->
+
+      <div class="card ms-3 me-3 mt-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">See Posts</h5>
+          <h6 class="card-subtitle mb-2 text-muted">See posts from you</h6>
+          <p class="card-text">View your posts that you added to the community.</p>
+          <a href="/userPosts" class="card-link">Go to posts</a>
+        </div>
+      </div>
+
+      <!-- To all comments -->
+
+      <div class="card ms-3 me-3 mt-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">See All Comments</h5>
+          <h6 class="card-subtitle mb-2 text-muted">See what comments you submitted.</h6>
+          <p class="card-text">View your comments that you added to the community.</p>
+          <a href="/userComments" class="card-link">Go to all comments.</a>
+        </div>
+      </div>
+</main>
+
+<%- include('partials/footer') %>

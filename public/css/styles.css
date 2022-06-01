@@ -1,0 +1,67 @@
+.container{
+  margin-top: 20%;
+}
+/* .card{
+  margin: 0 15% 0 15%;
+} login and signup*/
+.card{
+  width: 75%;
+}
+.card.reg-sign{
+  margin: 0 15% 0 15%;
+}
+.signin-area{
+  margin-top: 5%;
+}
+.signin-area h1{
+  text-align: center;
+}
+.signin-header{
+  padding-bottom: 20%;
+}
+.navbar{
+  background-color: #5463FF;
+}
+.navbar-brand{
+  padding: 1%;
+  color: #fff;
+}
+.nav-link.head{
+  color: #fff;
+}
+
+/* Habit tracker */
+.card.habit{
+  margin: auto;
+  width: 30%;
+}
+.form-control.habit{
+  width: 30%;
+}
+/* sober tracker */
+.countup {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.countup .timeel {
+  display: inline-block;
+  padding: 10px;
+  background: #151515;
+  margin: 0;
+  color: white;
+  min-width: 2.6rem;
+  margin-left: 13px;
+  border-radius: 10px 0 0 10px;
+}
+.countup span[class*="timeRef"] {
+  border-radius: 0 10px 10px 0;
+  margin-left: 0;
+  background: #e8c152;
+  color: black;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

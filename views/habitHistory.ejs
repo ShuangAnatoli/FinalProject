@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+<main class="mt-5 pt-3">
+    <h2 class="ms-2">Habit History</h2>
+    <%habitHistories.forEach(function(HabitHistory){%>
+        <p><strong class="ms-2 mt-5">HabitHistory.name</strong></p>
+        <% HabitHistory.checkin.forEach(function(habitProgress){%>
+            <p class="ms-3"><%=habitProgress.date%></p>
+            <p class="ms-3"><%=habitProgress.check%></p>
+            <hr>
+       <% }) %>
+    
+    <%});%>
+</main>
+
+<%- include('partials/footer') %>
+

@@ -1,0 +1,164 @@
+<%- include('partials/header') %>
+<%if(role=="user"){%>
+  <%- include('partials/sidenav') %>
+<%}%>
+<%if(role=="admin"){%>
+  <%- include('partials/adminSide') %>
+<%}%>
+
+<main class="mt-5 pt-3">
+    <!-- Button trigger modal -->
+    <div class="ms-3 me-3">
+      <div class="input-group" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add new post
+      </button>
+      </div>
+    </div>
+    <hr>
+    <!-- <div class="search-wrapper">
+      <label for="searchbox">Search</label>
+      <input 
+        type="search" 
+        oninput="liveSearch()" 
+        id="searchbox" 
+      >
+    </div> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="posts" id="posts">
+            <h5>All Posts</h5>
+            <% items.forEach(function(posts){ %>
+              <% posts.forEach(function(post){ %>
+                <%if(post.user){%>
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <div class="d-flex mt-3 ">
+                        <div class="flex-shrink-0 me-2">
+                            <img src="https://i.pinimg.com/564x/20/0d/72/200d72a18492cf3d7adac8a914ef3520.jpg" alt="" width="70px" height="70px">
+                        </div>
+                        <div class="flex-grow-1">
+                                <p>Username: <%= post.userDisplay %> </p>
+                               
+                                <p class="title"><strong>Content title:  <%= post.title %></strong></p>
+                                <p>Category: <%= post.category %></p>
+                                <p> <%= post.content %></p>
+                                
+                                <a href="/postSingle/?id=<%=post.id%>">Click here</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               <% } %>
+                <% }); %>
+              <% }); %>
+           </div>
+        </div>
+        <div class="col-lg-3">
+          <h5>Filter by Category</h5>
+          <div class="card">
+            <div class="card-header">
+              Categories
+            </div>
+            <ul class="list-group list-group-flush">
+              <% items.forEach(function(categories){ %>
+                <% categories.forEach(function(cat){ %>
+                  <%if(cat.name){%>
+                    <li class="list-group-item" value="<%=cat.name%>"><a href="/categorisedPosts/<%=cat.name%>" class="text-decoration-none"><%=cat.name%></a></li>    
+              <% } %>
+              <% }); %>
+            <% }); %>  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+</main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="addPosts" method="post" class="ms-5 me-5 mt-3">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">What to you want to share with others?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title" name="title" required>
+                </div>
+                
+                <select class="form-select" aria-label="Select category" name="category">
+                 
+                  <% items.forEach(function(categories){ %>
+                    <% categories.forEach(function(cat){ %>
+                      <%if(cat.name){%>
+                  <option value="<%=cat.name%>"><%=cat.name%></option>
+                  <% } %>
+                  <% }); %>
+                <% }); %>
+                </select>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Content</label>
+                    <textarea class="form-control" id="formGroupExampleInput2" rows="3" name="content" required></textarea>
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Post</button>
+        </div>
+       
+      </div>
+    </div>
+  </form>
+  </div>
+<script>
+
+function liveSearch() {
+  // Locate the card elements
+  let cards = document.getElementById('posts').innerText;
+  console.log(cards);
+  // Locate the search input
+  let search_query = document.getElementById("searchbox").value;
+  // Loop through the cards
+  for (var i = 0; i < cards.length; i++) {
+    // If the text is within the card...
+    if(cards[i].toLowerCase()
+      // ...and the text matches the search query...
+      .includes(search_query.toLowerCase())) {
+        // ...remove the `.is-hidden` class.
+        cards[i].classList.remove("is-hidden");
+    } else {
+      // Otherwise, add the class.
+      cards[i].classList.add("is-hidden");
+    }
+  }
+}
+//   function myFunction() {
+//     var input, filter, ul, li, i, txtValue;
+//     input = document.getElementById("myInput");
+//     filter = input.value.toUpperCase();
+//     ul = document.getElementById("myUL");
+//     li = ul.getElementsByTagName("li");
+//     // alert(li.length);
+//     for (i = 0; i < li.length; i++) {
+        
+//         // a = li[i].getElementsByTagName("a")[0];
+//         var a = li[i].getElementsByTagName("p")[0];
+//         txtValue = a.textContent || a.innerText;
+//         // alert(txtValue);
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//             li[i].style.display = "";
+//         } else {
+//             li[i].style.display = "none";
+//         }
+//     }
+// }
+</script>
+<%- include('partials/footer') %>
+

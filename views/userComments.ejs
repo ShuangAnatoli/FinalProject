@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+<%if(role=="user"){%>
+  <%- include('partials/sidenav') %>
+<%}%>
+<%if(role=="admin"){%>
+  <%- include('partials/adminSide') %>
+<%}%>
+<main class="mt-5 pt-3">
+ 
+      <h4 class="ms-3">Your comments</h4>
+    <% posts.forEach(function(post){ %>
+        <% post.comments.forEach(function(comment){ %>
+    <div class="card ms-4 me-4 mt-3">
+        <div class="card-header">
+            <a href="/postSingle/?id=<%=post.id%>" class="text-decoration-none">
+                <p>You commented on <%=post.userDisplay%>'s post. Title:<%=post.title%></p>
+            </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%=comment.cmtUserName%> <a href="/deleteComment/<%= comment._id %>" onclick="ConfirmDelete()"><i class="bi bi-trash3"></i></a></h5>
+          <p class="card-text"><%=comment.comment%></p>
+        </div>
+        <% }); %>
+      </div>
+      <% }); %>
+</main>
+<script>
+  function ConfirmDelete()
+{
+  return confirm("Are you sure you want to delete?");
+}
+
+</script>
+<%- include('partials/footer') %>

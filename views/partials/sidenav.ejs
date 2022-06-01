@@ -1,0 +1,192 @@
+ <!-- Off Canvas -->
+      
+ <div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    
+  <div class="offcanvas-body p-0">
+      <nav class="navbar-light">
+          <ul class="navbar-nav">
+            <!-- Home -->
+              <li>
+                  <div class="text-muted small fw-bold px-3">
+                       Home
+                  </div>
+              </li>
+              <li>
+                  <a href="/dashboard" class="nav-link px-3 active text-decoration-none text-black">
+                      <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                      <span>Dashboard</span>
+                  </a>
+              </li>
+              <li>
+                <a href="/viewPosts" class="nav-link px-3 active text-decoration-none text-black">
+                    <span class="me-2"><i class="bi bi-people"></i></span>
+                    <span>Community</span>
+                </a>
+            </li>
+            <li>
+              <a href="/userAccount" class="nav-link px-3 active text-decoration-none text-black">
+                  <span class="me-2"><i class="bi bi-person"></i></span>
+                  <span>Account</span>
+              </a>
+          </li>
+          <li>
+            <a href="/achievements" class="nav-link px-3 active text-decoration-none text-black">
+                <span class="me-2"><i class="bi bi-trophy"></i></span>
+                <span>Achievememts</span>
+            </a>
+        </li>
+              <li class="my-1">
+                  <hr class="dropdown-divider"/>
+              </li>
+               <!-- Home -->
+
+                <!-- Journal -->
+              <li>
+                  <div class="text-muted small fw-bold px-3">
+                      Journal
+                 </div>
+              </li>
+              <li>
+                  <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#journal" role="button" aria-expanded="false" aria-controls="collapseExample">
+                     <span><i class="bi bi-book"></i></span>
+                     <span class="ms-2 text-black">Journal</span>
+                     <span class="right-icon ms-auto">
+                      <i class="bi bi-chevron-down"></i>
+                     </span>
+                    </a>
+                    <div class="collapse" id="journal">
+                      <div class="">
+                        <ul class="navbar-nav ps-3">
+                          <li>
+                            <a href="/journal" class="nav-link px-3">
+                                <span><i class="bi bi-journal-plus"></i></span>
+                                <span class="ms-2">Journal Entry</span>
+                            </a>
+                        </li>
+                          <li>
+                              <a href="/viewJournal" class="nav-link px-3">
+                                  <span><i class="bi bi-card-list"></i></span>
+                                  <span class="ms-2">Journal History</span>
+                              </a>
+                          </li>
+                          <li>
+                            <a href="/journalAchievement" class="nav-link px-3">
+                                <span><i class="bi bi-trophy"></i></span>
+                                <span class="ms-2">Achievements</span>
+                            </a>
+                        </li>
+                        </ul>
+                      </div>
+                    </div>
+              </li>
+              <li class="my-1">
+                <hr class="dropdown-divider"/>
+              </li>
+               <!-- Journal -->
+
+               <!-- Habits -->
+               <li>
+                <div class="text-muted small fw-bold px-3">
+                    Habits
+               </div>
+            </li>
+            <li>
+                <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#habits" role="button" aria-expanded="false" aria-controls="collapseExample">
+                   <span><i class="bi bi-graph-up"></i></span>
+                   <span class="ms-2 text-black">Habits</span>
+                   <span class="right-icon ms-auto">
+                    <i class="bi bi-chevron-down"></i>
+                   </span>
+                   <!-- <button class="accordion-button collapsed"></button> -->
+                  </a>
+                  <div class="collapse" id="habits">
+                    <div class="">
+                      <ul class="navbar-nav ps-3">
+                        <li>
+                          <a href="/habitDaily" class="nav-link px-3">
+                              <span><i class="bi bi-calendar-check"></i></span>
+                              <span class="ms-2">Daily Check-in</span>
+                          </a>
+                      </li>
+                        <li>
+                            <a href="/activity" class="nav-link px-3">
+                                <span><i class="bi bi-plus-square"></i></i></span>
+                                <span class="ms-2">Add Habits</span>
+                            </a>
+                        </li>
+                        <!-- <li>
+                          <a href="/habitHistory" class="nav-link px-3">
+                              <span><i class="bi bi-clock-history"></i></span>
+                              <span class="ms-2">Habits History</span>
+                          </a>
+                      </li> -->
+                      <li>
+                        <a href="/habitAchievements" class="nav-link px-3">
+                            <span><i class="bi bi-trophy"></i></span>
+                            <span class="ms-2">Achievements</span>
+                        </a>
+                    </li>
+                      </ul>
+                    </div>
+                  </div>
+            </li>
+            <li class="my-1">
+              <hr class="dropdown-divider"/>
+            </li>
+             <!-- Habits -->
+
+             <!-- Sobriety -->
+             <li>
+              <div class="text-muted small fw-bold px-3">
+                  Sobriety
+             </div>
+          </li>
+          <li>
+              <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#sobriety" role="button" aria-expanded="false" aria-controls="collapseExample">
+                 <span><i class="bi bi-layout-split text-black"></i></span>
+                 <span class="ms-2 text-black">Sobriety</span>
+                 <span class="right-icon ms-auto">
+                  <i class="bi bi-chevron-down"></i>
+                 </span>
+                </a>
+                <div class="collapse" id="sobriety">
+                  <div class="">
+                    <ul class="navbar-nav ps-3">
+                      <li>
+                        <a href="/soberProgress" class="nav-link px-3">
+                            <span><i class="bi bi-calendar-check"></i></span>
+                            <span class="ms-2">Daily Check-in</span>
+                        </a>
+                    </li>
+                      <li>
+                          <a href="/soberDetails" class="nav-link px-3">
+                              <span><i class="bi bi-plus-square"></i></span>
+                              <span class="ms-2">Add New Action</span>
+                          </a>
+                      </li>
+                      <!-- <li>
+                        <a href="/sobrietyHistory" class="nav-link px-3">
+                            <span><i class="bi bi-clock-history"></i></span>
+                            <span class="ms-2">Sobriety History</span>
+                        </a>
+                    </li> -->
+                    <li>
+                      <a href="/sobrietyAchievements" class="nav-link px-3">
+                          <span><i class="bi bi-trophy"></i></span>
+                          <span class="ms-2">Achievements</span>
+                      </a>
+                  </li>
+                    </ul>
+                  </div>
+                </div>
+          </li>
+          <li class="my-1">
+            <hr class="dropdown-divider"/>
+          </li>
+           <!-- Sobriety -->
+               
+          </ul>
+      </nav>
+  </div>
+</div>
+<!-- Off Canvas -->

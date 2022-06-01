@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+<%- include('partials/adminSide') %>
+<main class="mt-5 pt-3">
+  
+    <div class="ms-3 me-3 mt-3">
+      <div class="table-responsive">
+        <table id="dt-table" class="table">
+            <thead>
+                <tr>
+                    <th>User Email</th>
+                   
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% users.forEach(function(user){ %>
+                <tr>
+                    <td><%= user.username %></td>
+                    <td><a href="/deleteUser/?id=<%= user.id %>" class="text-decoration-none" onclick="ConfirmDelete()">Delete</a></td>
+                </tr>
+                <% }); %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>User Email</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+      
+      </div>
+     </div>
+    
+
+</main>
+
+<script>
+
+$(document).ready(function() {
+    $('#dt-table').DataTable({
+    pageLength: 5,
+    paging: true,
+    filter: true,
+    deferRender: true,
+    scrollY: 200,
+    scrollCollapse: true,
+    scroller: true,
+    "searching": true,
+    });
+  } );
+
+  function ConfirmDelete()
+{
+  return confirm("Are you sure you want to delete?");
+}
+  
+</script>
+<%- include('partials/footer') %>

@@ -1,0 +1,79 @@
+///////////THINGS LEFT///////////////
+Habits (show progress)
+Show done for today (habits)
+Sober (track/show)
+Achievements badges
+Forum
+///////////THINGS TO CONSIDER///////////////
+express routing for modules
+"/" options login register
+session time
+strong password
+journal encryption
+
+///////////NOTES FOR TOMORROW ME///////////////
+16 March----------
+wifi no good
+run the code that will show the habits on UI
+RESEARCH----------
+looping the array of embeded doc
+mongoose embeded doc retrieval
+TIPS---------
+Save the progress of each habit index and compute it for another schema tracking to get the overall progress
+$inc to incerase num inside mongodb
+
+17March-----------
+Modularity one user one habit and track that one habit in habit tracker
+
+18 march-------
+Delete habit (has to add)
+update many
+Ques-------
+Petition to add name in tracker?
+
+19 March----
+if task is done show in red
+print out the data in check in to show.
+progress/7 to show weekly progress
+Habit delete
+
+Sufferings---
+I had a realization. I need to use routing. since my main file is too saturated.
+
+20 March-----------
+also have soberity check i could do in the progress page.
+
+21 March---------
+Sober - reset (add new in the umm the database)
+Confirmation responses if saved
+User details
+Calendar view
+
+27 March----------------------
+Achievement system (3+1)
+-Main achievement systems will have built in achievements collections
+-The achievements will be stuck to the user's separate collections as FK
+-Achievements (Habits, sober, journal, user)
+
+
+1 april--------------------
+findOneandupdate ko function khwal pee khaw tone
+new page for countdown timer
+
+22 april-----------------
+Check condition in checkin date
+if exixts res.flash(message)\
+
+
+
+
+
+
+
+
+Strength of the system 
+Role based
+authorization and authenticayion
+salt and hash
+minimal design
+accessible

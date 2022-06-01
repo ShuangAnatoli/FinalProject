@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+<%- include('partials/sidenav') %>
+<main class="mt-5 pt-3">
+  <div class="card ms-3 me-3">
+    <div class="card-body">
+        <div>
+            <p>Name: <%=sobrietyHistories.soberName%></p>
+            <p>Today:<%=Date%></p>
+            
+        </div> 
+        <div>
+           
+          <% sobrietyHistories.checkin.find(function (item, index) {
+             if(item.date === Date){
+                 found = true;
+                 status = item.check;
+            }else{
+              found == false;
+              status = item.check;
+            }
+          });  %>
+
+              <% if(found && status===true){ %>
+                <p>You managed to avoid this today.</p>
+                <button class="btn btn-outline-danger" disabled>Completed Today</button>
+              <% } else if(found==false || (found && status===false)){ %>
+                <a href="/checkSober/?id=<%=sobrietyHistories._id%>">
+                  <button class="btn btn-outline-success">Check in today</button>
+                </a>
+              <% } %>
+        </div>
+
+    </div>
+</div>
+    <div class="ms-3 me-3 mt-3">
+        <table class="table" id="dt-table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">Name</th> -->
+              <th scope="col">Date</th> 
+              <th scope="col">Check</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+                  <tr>
+                    <% sobrietyHistories.checkin.forEach(function(sobrietyProgress){%>
+                    <td><%=sobrietyProgress.date%></td>
+                    <% if(sobrietyProgress.check==true){ %>
+                      <td>Completed</td>
+                   <% }else{ %>
+                      <td>Not complete</td>
+                    <%}%>
+                   
+                  </tr>
+                  <% }); %>
+          </tbody>
+        </table>
+      </div>
+    
+</main>
+<script>
+    $(document).ready(function() {
+      $('#dt-table').DataTable({
+      pageLength: 5,
+      paging: true,
+      filter: true,
+      deferRender: true,
+      scrollY: 200,
+      scrollCollapse: true,
+      scroller: true,
+      "searching": true,
+      });
+    } );
+  
+  </script>
+<%- include('partials/footer') %>
